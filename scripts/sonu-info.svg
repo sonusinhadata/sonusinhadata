@@ -1,0 +1,295 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="650"
+height="476"
+viewBox="0 0 650 476"
+>
+
+<rect
+x="5"
+y="5"
+width="640"
+height="466"
+rx="14"
+fill="#0d1117"
+stroke="#30363d"
+stroke-width="2"
+/>
+
+<style>
+
+.title {
+    font-family: monospace;
+    font-size: 25px;
+    font-weight: bold;
+    fill: #39d353;
+}
+
+.subtitle {
+    font-family: monospace;
+    font-size: 13px;
+    fill: #8b949e;
+}
+
+.key {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    fill: #69f0a0;
+}
+
+.value {
+    font-family: monospace;
+    font-size: 16px;
+    fill: #eeeeee;
+}
+
+.row {
+    opacity: 0;
+}
+
+.cursor {
+    fill: #39d353;
+}
+
+</style>
+
+
+<text
+x="30"
+y="45"
+class="title">
+SONU@GITHUB
+</text>
+
+
+<text
+x="30"
+y="72"
+class="subtitle">
+Data Analyst • Business Intelligence
+</text>
+
+
+<rect
+x="30"
+y="88"
+width="590"
+height="1"
+fill="#30363d"
+/>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="0.50s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="110"
+class="key">
+ROLE
+</text>
+
+<text
+x="190"
+y="110"
+class="value">
+Data Analyst
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="0.75s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="158"
+class="key">
+FOCUS
+</text>
+
+<text
+x="190"
+y="158"
+class="value">
+Business Intelligence
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="1.00s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="206"
+class="key">
+STACK
+</text>
+
+<text
+x="190"
+y="206"
+class="value">
+SQL • Power BI • Excel
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="1.25s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="254"
+class="key">
+CODE
+</text>
+
+<text
+x="190"
+y="254"
+class="value">
+Python • Pandas • DAX
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="1.50s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="302"
+class="key">
+TOOLS
+</text>
+
+<text
+x="190"
+y="302"
+class="value">
+Power Query • Git • GitHub
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="1.75s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="350"
+class="key">
+ANALYTICS
+</text>
+
+<text
+x="190"
+y="350"
+class="value">
+EDA • KPI • Data Modeling
+</text>
+
+</g>
+
+
+<g class="row">
+
+<animate
+attributeName="opacity"
+from="0"
+to="1"
+begin="2.00s"
+dur="0.4s"
+fill="freeze"
+/>
+
+<text
+x="30"
+y="398"
+class="key">
+CURRENT
+</text>
+
+<text
+x="190"
+y="398"
+class="value">
+Building Analytics Projects
+</text>
+
+</g>
+
+
+<rect
+x="30"
+y="429"
+width="8"
+height="18"
+class="cursor">
+
+<animate
+attributeName="opacity"
+values="1;0;1"
+dur="1s"
+repeatCount="indefinite"
+/>
+
+</rect>
+
+</svg>
