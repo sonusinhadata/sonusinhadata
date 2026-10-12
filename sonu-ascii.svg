@@ -1,49 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="630" height="495" viewBox="0 0 630 495" preserveAspectRatio="xMidYMid meet">
-<g font-family="Courier New, monospace" font-size="11px" font-weight="400" fill="#39d353">
-<text x="0" y="11" opacity="0">................................    :=*=-=======-===+=:. .................................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.000s" fill="freeze"/></text>
-<text x="0" y="22" opacity="0">........................... ...::-=#%@@@@@@@@@@%%@@%@@@#+:     ...........................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.025s" fill="freeze"/></text>
-<text x="0" y="33" opacity="0">........................  :-=*#%%@@@@@@@@@@@@@@@@@@@@@@@@@#*+=-...........................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.050s" fill="freeze"/></text>
-<text x="0" y="44" opacity="0">...................... :=*%%%%@@@@@%@@@@@@@%@@@@@@@@@@@@@@@@@#+=: ........................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.075s" fill="freeze"/></text>
-<text x="0" y="55" opacity="0">......................+#%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*=:. .....................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.100s" fill="freeze"/></text>
-<text x="0" y="66" opacity="0">................... .#@##%@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+. ...................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.125s" fill="freeze"/></text>
-<text x="0" y="77" opacity="0">...................-%%#%@@@%%%@@@@%@@@@%@@@@@@@@%%%@@@@#@@@@@@@@@@@@@#-:..................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.150s" fill="freeze"/></text>
-<text x="0" y="88" opacity="0">................ .#%%#@@@@@@@%%%%@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@@%+=.................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.175s" fill="freeze"/></text>
-<text x="0" y="99" opacity="0">.............. .-#@#%@@@@@@@@@%@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@++................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.200s" fill="freeze"/></text>
-<text x="0" y="110" opacity="0">............. -%#@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.225s" fill="freeze"/></text>
-<text x="0" y="121" opacity="0">.............=%:+%@@@@@@@@@@@@@@@@@@@@@%%####%%%%%@@@@@@@@@@@@@@@@@@@@@@@@=:..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.250s" fill="freeze"/></text>
-<text x="0" y="132" opacity="0">............:%*=@%%%@@@@@@@@@#++++=====-------===+++*##%%@@@@@@@@@@@@@@@@@#+:.............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.275s" fill="freeze"/></text>
-<text x="0" y="143" opacity="0">........... .+#@%@%*#@@@@@@#=-::::::::::::------====++++**#%@@@@@@@@@@@@@##@=.............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.300s" fill="freeze"/></text>
-<text x="0" y="154" opacity="0">..........:-#%%%@@@%#%@@@*=-::::::::::::::::------==+++++***#%@@@@@@@@@@@%=%+ ............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.325s" fill="freeze"/></text>
-<text x="0" y="165" opacity="0">..........::#%#@%@@#@@@@*=::::::::::::::::::-----===++++++****#@@@@@@@@@@@@*-.............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.350s" fill="freeze"/></text>
-<text x="0" y="176" opacity="0">............**@#@@@@@@@+-:::::::::::---------------======++****#@@@@@@@@@@@* .............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.375s" fill="freeze"/></text>
-<text x="0" y="187" opacity="0">............=%#*@@@@@@=::::::::::::::--------::::-==+++****+***#@@@@@@@@@@@+..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.400s" fill="freeze"/></text>
-<text x="0" y="198" opacity="0">............*@@%@@@@@%-:::::.::.:::-::::::::::-+*%@@@@@@@@@@%#**%@@@@@@@@@#...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.425s" fill="freeze"/></text>
-<text x="0" y="209" opacity="0">...........:.%@#%@@@@@+.:::-+**#%@@%%*=--::--=*#%@%#*++==+*#%@%**%@@@@@@@@%:..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.450s" fill="freeze"/></text>
-<text x="0" y="220" opacity="0">............:%@*%@%@@@*..-#%@%%%##*+++=--:-=++***+++===++++==+##**@@@@@@@@%...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.475s" fill="freeze"/></text>
-<text x="0" y="231" opacity="0">.............=@##@%#@@=.-#+=-:::-=+++==-:.:=+*##**#+*%@@%#@%#++***#@@@@@@@%...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.500s" fill="freeze"/></text>
-<text x="0" y="242" opacity="0">.............:%%#@@%%@-.=:.:-=+*%@%###+=-::=*##%###==###**%@@%*++**@@@@@@@*...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.525s" fill="freeze"/></text>
-<text x="0" y="253" opacity="0">............. #@#%%%@@:..:-*#*-#%@%=*#+-:::-+#*###**+++++***+***+**%@@@@#@=...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.550s" fill="freeze"/></text>
-<text x="0" y="264" opacity="0">..............=@#@@%@@:.::===--==+**+=-::--=+*##**+++++===---=+****#@@**### ..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.575s" fill="freeze"/></text>
-<text x="0" y="275" opacity="0">...............@%@@@@@:.::::::------:::--:--=+*##**=-==------==+****@#++##%:..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.600s" fill="freeze"/></text>
-<text x="0" y="286" opacity="0">.............. +@#+#@%.:::::------::::--..::-+**+=+#+---------==+***@%*++*%* .............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.625s" fill="freeze"/></text>
-<text x="0" y="297" opacity="0">................##=:=%.:::::-----::--:+##=:-+%%%#++#+-:::::----==+**@##%#+%* .............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.650s" fill="freeze"/></text>
-<text x="0" y="308" opacity="0">................:%+::#:.::::::::------+==--++*#%%%#+=--::::----==++*@@%%**%= .............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.675s" fill="freeze"/></text>
-<text x="0" y="319" opacity="0">............... =#:-=#-.::::::::---:.:-+#@@@@@@@@@@@%%%#*+=======++#@@+*#*%...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.700s" fill="freeze"/></text>
-<text x="0" y="330" opacity="0">................:%:-#%+.::::::::----+#@@@%%%%%**#%%@@@@@@@@*++==+*#%@@+++@= ..............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.725s" fill="freeze"/></text>
-<text x="0" y="341" opacity="0">................ **:=+#.:::::::=#%@@@%*=====+*######%%@@@@@%++++*#%@@@**#= ...............<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.750s" fill="freeze"/></text>
-<text x="0" y="352" opacity="0">..................#+::%=.::::::%@@@%++++++*+*+++*###%#**%@%+++*#%%@@@@+:. ................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.775s" fill="freeze"/></text>
-<text x="0" y="363" opacity="0">...................#+:*#--:::::#@@@#++---:-==++++***++++*%%++*%%%@@@@@- ..................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.800s" fill="freeze"/></text>
-<text x="0" y="374" opacity="0">....................=+%%+==:::::#%+-:::::=#%%@@@%++++++*#%@@##%@@@@@@@:...................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.825s" fill="freeze"/></text>
-<text x="0" y="385" opacity="0">....................  +@#++=--::+%#-:::::--*%@@%#+==+*%@@@@@@%%@@@@@@* ...................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.850s" fill="freeze"/></text>
-<text x="0" y="396" opacity="0">.......................%@#**+=-:*#*=-------+*#%###%%%@@@@@@@@@@@@@@@%.....................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.875s" fill="freeze"/></text>
-<text x="0" y="407" opacity="0">.......................:@@%%*+==*#%###****#%%%@%%%@@@@@@@@@@@@@@@@@#......................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.900s" fill="freeze"/></text>
-<text x="0" y="418" opacity="0">....................... -@@%#*+*#%@%%@%@%%@@@@@@@@@@@@@@@@@@@@@@@@+.......................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.925s" fill="freeze"/></text>
-<text x="0" y="429" opacity="0">........................ -%@@%%%%@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@#=. .......................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.950s" fill="freeze"/></text>
-<text x="0" y="440" opacity="0">...........................=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#=:. .........................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="0.975s" fill="freeze"/></text>
-<text x="0" y="451" opacity="0">........................... .:=+#%@@@@@@@@@@@@@@@@@@@@@%*=-.   ...........................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="1.000s" fill="freeze"/></text>
-<text x="0" y="462" opacity="0">..............................   .::=+**##%%%@%%%#*+=-..   ...............................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="1.025s" fill="freeze"/></text>
-<text x="0" y="473" opacity="0">....................................     ........     ....................................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="1.050s" fill="freeze"/></text>
-<text x="0" y="484" opacity="0">..........................................................................................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="1.075s" fill="freeze"/></text>
-<text x="0" y="495" opacity="0">..........................................................................................<animate attributeName="opacity" from="0" to="1" dur="0.30s" begin="1.100s" fill="freeze"/></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="336" height="252" viewBox="0 0 336 252" preserveAspectRatio="xMidYMid meet">
+<g font-family="Courier New, monospace" font-size="8px" fill="#39d353">
+<text x="132" y="7" textLength="84" lengthAdjust="spacing" xml:space="preserve">** ++++++=++*+</text>
+<text x="108" y="14" textLength="126" lengthAdjust="spacing" xml:space="preserve">+#@@@@@@@@@@@@@@@@@%#</text>
+<text x="78" y="21" textLength="186" lengthAdjust="spacing" xml:space="preserve">*#%%@@@@@@@@@@@@@@@@@@@@@@@@%*=</text>
+<text x="60" y="28" textLength="216" lengthAdjust="spacing" xml:space="preserve">*%@%%@@%@@@%@@@@@@@@@@@@@@@@@@@@@#*=</text>
+<text x="48" y="35" textLength="240" lengthAdjust="spacing" xml:space="preserve">#%#%@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@%*</text>
+<text x="42" y="42" textLength="258" lengthAdjust="spacing" xml:space="preserve">#%#%@@%%%@@@%@@@@%@@@@@@%%%@@@#@@@@@@@@@@@#</text>
+<text x="30" y="49" textLength="282" lengthAdjust="spacing" xml:space="preserve">*%%%@@@@@@%%%@@@@@@%@@@@@@@@@@@%%@@@@@@@@@@@@@+</text>
+<text x="24" y="56" textLength="294" lengthAdjust="spacing" xml:space="preserve">#@%@@@@@@@@@%@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#</text>
+<text x="12" y="63" textLength="312" lengthAdjust="spacing" xml:space="preserve">#+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+</text>
+<text x="6" y="70" textLength="324" lengthAdjust="spacing" xml:space="preserve">%+=%%@@@@@@@@@%###****+++=+++++**##%%@@@@@@@@@@@@@@@%+</text>
+<text x="6" y="77" textLength="330" lengthAdjust="spacing" xml:space="preserve">*%%@@*%@@@@@#+--------------=====+++**#%@@@@@@@@@@@@#@+</text>
+<text x="0" y="84" textLength="336" lengthAdjust="spacing" xml:space="preserve">*%%%@@%%%@@#+----------------=====+++++***#@@@@@@@@@@*#*</text>
+<text x="0" y="91" textLength="330" lengthAdjust="spacing" xml:space="preserve">#%%%@@%@@@*=-----------------=====++++++****%@@@@@@@@@#</text>
+<text x="0" y="98" textLength="330" lengthAdjust="spacing" xml:space="preserve">+###@@@@@*------------------------===++++***#@@@@@@@@@%</text>
+<text x="0" y="105" textLength="330" lengthAdjust="spacing" xml:space="preserve">+@%%@@@@#-:--:::::::::---------=*#%%%@@@%#***@@@@@@@@@=</text>
+<text x="6" y="112" textLength="318" lengthAdjust="spacing" xml:space="preserve">%%%%@@@%=:::-=++*###*==-----+#%@@%##**##%@#*#@@@@@@@@</text>
+<text x="6" y="119" textLength="318" lengthAdjust="spacing" xml:space="preserve">%%#@@%@@=:-*%%%%%##**+=---=+***+++==+++++*##*#@@@@@@@</text>
+<text x="6" y="126" textLength="318" lengthAdjust="spacing" xml:space="preserve">+@*@@#@@-:*+=---=+**+==-:-+*##***+#@@%%@%*+***@@@@@@@</text>
+<text x="12" y="133" textLength="312" lengthAdjust="spacing" xml:space="preserve">%#%%%%%:--:=++*%@@*#*+---=*####*+**#*#%%#*+**%@@@@@%</text>
+<text x="12" y="140" textLength="312" lengthAdjust="spacing" xml:space="preserve">#%#%%@%:::=**==###**+----=*#*#***+++++==+****#@@%##%</text>
+<text x="18" y="147" textLength="306" lengthAdjust="spacing" xml:space="preserve">@#@@@%::------====------=+*##*+=========+****@%+*#%</text>
+<text x="18" y="154" textLength="312" lengthAdjust="spacing" xml:space="preserve">%@*#@#:--------------::--=***+**=------==+***%%*+*##</text>
+<text x="24" y="161" textLength="306" lengthAdjust="spacing" xml:space="preserve">%+-+#.------------=#*=--*%%#+**=-:-----==++*%%#%*##</text>
+<text x="24" y="168" textLength="306" lengthAdjust="spacing" xml:space="preserve">#*--#:::-------=--===++**#%%%#++==-----==++*@@##*#*</text>
+<text x="24" y="175" textLength="300" lengthAdjust="spacing" xml:space="preserve">#==*#::::::-----:-=#@@@@@%%@@@@@@@%#+====+*#@@+**%</text>
+<text x="30" y="182" textLength="288" lengthAdjust="spacing" xml:space="preserve">*-+#=:::----+**#%@%**+****###%%@@@@@*+++*#%@@**#</text>
+<text x="30" y="189" textLength="276" lengthAdjust="spacing" xml:space="preserve">#+-=#:::--:+@@@%*+==+++***####%##%@#++**%%@@@*</text>
+<text x="36" y="196" textLength="264" lengthAdjust="spacing" xml:space="preserve">#+-%+--:-:+@@@*++==-=++++*****++*%#+*#%%%@@@</text>
+<text x="48" y="203" textLength="252" lengthAdjust="spacing" xml:space="preserve">+@#==---:+%+--:--=#%@@@%++++**#%@##%%@@@@@</text>
+<text x="54" y="210" textLength="246" lengthAdjust="spacing" xml:space="preserve">#@*++=--=%*-------*%%%#*+**%@@@@@%%@@@@@+</text>
+<text x="60" y="217" textLength="234" lengthAdjust="spacing" xml:space="preserve">@%##+=-+#*++====+*#%##%@@@@@@@@@@@@@@@*</text>
+<text x="66" y="224" textLength="222" lengthAdjust="spacing" xml:space="preserve">@@%#++*%%%%%%##%%@@%%@@@@@@@@@@@@@@@+</text>
+<text x="72" y="231" textLength="204" lengthAdjust="spacing" xml:space="preserve">%@%###%@%%%%@@@@@@@@@@@@@@@@@@@@%*</text>
+<text x="78" y="238" textLength="180" lengthAdjust="spacing" xml:space="preserve">+%@@@@@@@@@@@@@@@@@@@@@@@@@@#*</text>
+<text x="102" y="245" textLength="126" lengthAdjust="spacing" xml:space="preserve">*#%@@@@@@@@@@@@@@@@%*</text>
+<text x="144" y="252" textLength="48" lengthAdjust="spacing" xml:space="preserve">++**##**</text>
 </g>
 </svg>

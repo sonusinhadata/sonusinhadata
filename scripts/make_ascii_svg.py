@@ -1,417 +1,193 @@
 from pathlib import Path
 from PIL import Image, ImageEnhance
+import numpy as np
 import html
+
+try:
+    from scipy import ndimage
+    HAS_SCIPY = True
+except ImportError:
+    HAS_SCIPY = False
 
 
 # ============================================================
-# SETTINGS
+# CONFIGURATION
 # ============================================================
 
 INPUT = Path("source-photo.png")
 OUTPUT = Path("sonu-ascii.svg")
 
-# Number of ASCII characters across
-ASCII_WIDTH = 90
+ASCII_WIDTH = 58          # resolution of the ASCII portrait
+CHAR_WIDTH = 6
+CHAR_HEIGHT = 7
+FONT_SIZE = 8
+CROP_MARGIN = 4           # px margin around subject in source image
 
-# Character proportions
-CHAR_WIDTH = 7
-CHAR_HEIGHT = 11
-
-# Small margin around the actual portrait
-CROP_MARGIN = 12
-
-# Green terminal color
+ALPHA_THRESHOLD = 160     # alpha >= this counts as "visible"
+BG_TOLERANCE = 40         # colour distance from background to count as subject
 TEXT_COLOR = "#39d353"
 
-# Dark pixels -> dense characters
-# Bright pixels -> lighter characters
-RAMP = "@%#*+=-:. "
-
-
-# ============================================================
-# CHECK INPUT
-# ============================================================
-
-if not INPUT.exists():
-    raise FileNotFoundError(
-        f"Could not find {INPUT}"
-    )
-
-print(f"Reading {INPUT}...")
+# Dark -> dense, light -> sparse.
+# NO trailing space: empty space is ONLY used outside the portrait mask.
+RAMP = "@%#*+=-:."
 
 
 # ============================================================
 # LOAD IMAGE
 # ============================================================
 
+if not INPUT.exists():
+    raise FileNotFoundError(f"Could not find source image: {INPUT}")
+
 image = Image.open(INPUT).convert("RGBA")
+print(f"Original image: {image.width} x {image.height}")
 
-print(
-    f"Original image: "
-    f"{image.width} x {image.height}"
-)
-
-
-# ============================================================
-# USE TRANSPARENCY TO FIND THE PORTRAIT
-# ============================================================
-
-alpha = image.getchannel("A")
-
-# Find all pixels that are actually visible
-bbox = alpha.getbbox()
-
-if bbox is None:
-    raise RuntimeError(
-        "No visible subject was found in the image."
-    )
+rgba = np.array(image)
+rgb = rgba[:, :, :3].astype(int)
+alpha = rgba[:, :, 3]
 
 
 # ============================================================
-# CROP TO PORTRAIT
+# BUILD SUBJECT MASK
 # ============================================================
 
-left, top, right, bottom = bbox
+mask = alpha >= ALPHA_THRESHOLD
 
-left = max(0, left - CROP_MARGIN)
-top = max(0, top - CROP_MARGIN)
-right = min(image.width, right + CROP_MARGIN)
-bottom = min(image.height, bottom + CROP_MARGIN)
+# If almost everything is "visible", the background is NOT truly
+# transparent (this is what caused the dotted rows). Remove it by
+# comparing every pixel with the background colour (taken from corners).
+if mask.mean() > 0.90:
+    print("Background is not transparent -> using colour-based removal")
+    h, w = mask.shape
+    corners = np.array([
+        rgb[0, 0], rgb[0, w - 1], rgb[h - 1, 0], rgb[h - 1, w - 1]
+    ])
+    bg_color = np.median(corners, axis=0)
+    distance = np.abs(rgb - bg_color).max(axis=2)
+    mask = distance > BG_TOLERANCE
 
-image = image.crop(
+# Keep only the largest blob (the head) and fill holes inside it.
+if HAS_SCIPY:
+    labels, count = ndimage.label(mask)
+    if count > 1:
+        sizes = ndimage.sum(mask, labels, range(1, count + 1))
+        mask = labels == (np.argmax(sizes) + 1)
+    mask = ndimage.binary_fill_holes(mask)
+else:
+    print("Tip: run `pip install scipy` for cleaner stray-pixel removal")
+
+if not mask.any():
+    raise RuntimeError("No visible subject found in source-photo.png.")
+
+
+# ============================================================
+# TIGHT CROP AROUND THE SUBJECT
+# ============================================================
+
+ys, xs = np.where(mask)
+left = max(0, xs.min() - CROP_MARGIN)
+right = min(image.width, xs.max() + 1 + CROP_MARGIN)
+top = max(0, ys.min() - CROP_MARGIN)
+bottom = min(image.height, ys.max() + 1 + CROP_MARGIN)
+
+image = image.crop((left, top, right, bottom))
+mask_img = Image.fromarray((mask * 255).astype("uint8")).crop(
     (left, top, right, bottom)
 )
 
-print(
-    f"Cropped portrait: "
-    f"{image.width} x {image.height}"
-)
+print(f"Cropped portrait: {image.width} x {image.height}")
 
 
 # ============================================================
-# CONVERT TO GRAYSCALE
+# GRAYSCALE + CONTRAST
 # ============================================================
 
-rgb = image.convert("RGB")
-
-gray = rgb.convert("L")
-
-
-# ============================================================
-# IMPROVE CONTRAST
-# ============================================================
-
-# This makes the beard, hair, eyes and facial contours
-# stand out better in ASCII.
-
-contrast = ImageEnhance.Contrast(gray)
-
-gray = contrast.enhance(1.35)
+gray = image.convert("RGB").convert("L")
+gray = ImageEnhance.Contrast(gray).enhance(1.30)
 
 
 # ============================================================
-# RESIZE FOR ASCII
+# RESIZE TO ASCII GRID
 # ============================================================
 
 aspect_ratio = gray.height / gray.width
+ascii_height = max(1, round(ASCII_WIDTH * aspect_ratio * 0.50))
 
-ascii_height = max(
-    1,
-    int(
-        ASCII_WIDTH
-        * aspect_ratio
-        * 0.50
-    )
-)
+gray = gray.resize((ASCII_WIDTH, ascii_height), Image.Resampling.LANCZOS)
+mask_small = mask_img.resize((ASCII_WIDTH, ascii_height), Image.Resampling.LANCZOS)
 
-gray = gray.resize(
-    (
-        ASCII_WIDTH,
-        ascii_height
-    ),
-    Image.Resampling.LANCZOS
-)
-
-# Resize alpha mask as well
-alpha = alpha.crop(
-    (
-        0,
-        0,
-        image.width,
-        image.height
-    )
-)
-
-alpha = alpha.resize(
-    (
-        ASCII_WIDTH,
-        ascii_height
-    ),
-    Image.Resampling.LANCZOS
-)
-
-
-print(
-    f"ASCII grid: "
-    f"{ASCII_WIDTH} x {ascii_height}"
-)
+gray_px = np.array(gray)
+mask_px = np.array(mask_small) >= 128
 
 
 # ============================================================
-# GENERATE ASCII
+# ASCII CONVERSION
 # ============================================================
-
-gray_pixels = list(gray.getdata())
-alpha_pixels = list(alpha.getdata())
 
 rows = []
-
 for y in range(ascii_height):
-
     row = []
-
     for x in range(ASCII_WIDTH):
-
-        index = y * ASCII_WIDTH + x
-
-        brightness = gray_pixels[index]
-        transparency = alpha_pixels[index]
-
-        # Completely transparent = empty space
-        if transparency < 35:
+        if not mask_px[y, x]:
             row.append(" ")
-            continue
-
-        # Map brightness to ASCII character
-        ramp_index = int(
-            brightness
-            / 255
-            * (len(RAMP) - 1)
-        )
-
-        ramp_index = max(
-            0,
-            min(
-                ramp_index,
-                len(RAMP) - 1
-            )
-        )
-
-        row.append(
-            RAMP[ramp_index]
-        )
-
-    rows.append(
-        "".join(row)
-    )
+        else:
+            idx = int(gray_px[y, x] / 255 * (len(RAMP) - 1))
+            row.append(RAMP[max(0, min(idx, len(RAMP) - 1))])
+    rows.append("".join(row))
 
 
 # ============================================================
-# REMOVE EMPTY ROWS
+# CROP GRID TO REAL PORTRAIT BOUNDS
 # ============================================================
 
-while rows and not rows[0].strip():
-    rows.pop(0)
+grid_ys, grid_xs = np.where(mask_px)
+min_x, max_x = grid_xs.min(), grid_xs.max()
+min_y, max_y = grid_ys.min(), grid_ys.max()
 
-while rows and not rows[-1].strip():
-    rows.pop()
+rows = [row[min_x:max_x + 1] for row in rows[min_y:max_y + 1]]
+
+final_width = max_x - min_x + 1
+final_height = len(rows)
+print(f"Final ASCII: {final_width} x {final_height}")
 
 
 # ============================================================
-# FIND VISIBLE ASCII BOUNDARY
+# CREATE SVG (canvas == portrait size -> perfectly centred,
+# zero transparent margin)
 # ============================================================
 
-visible = []
+svg_width = final_width * CHAR_WIDTH
+svg_height = final_height * CHAR_HEIGHT
 
-for y, row in enumerate(rows):
-
-    for x, character in enumerate(row):
-
-        if character != " ":
-
-            visible.append(
-                (x, y)
-            )
-
-
-if not visible:
-    raise RuntimeError(
-        "ASCII conversion produced no visible characters."
-    )
-
-
-min_x = min(
-    x for x, y in visible
-)
-
-max_x = max(
-    x for x, y in visible
-)
-
-min_y = min(
-    y for x, y in visible
-)
-
-max_y = max(
-    y for x, y in visible
-)
-
-
-# Small ASCII breathing room
-min_x = max(
-    0,
-    min_x - 1
-)
-
-max_x = min(
-    ASCII_WIDTH - 1,
-    max_x + 1
-)
-
-min_y = max(
-    0,
-    min_y - 1
-)
-
-max_y = min(
-    len(rows) - 1,
-    max_y + 1
-)
-
-
-# Crop rows and columns
-rows = [
-    row[min_x:max_x + 1]
-    for row in rows[min_y:max_y + 1]
+svg = [
+    f'<svg xmlns="http://www.w3.org/2000/svg" '
+    f'width="{svg_width}" height="{svg_height}" '
+    f'viewBox="0 0 {svg_width} {svg_height}" '
+    f'preserveAspectRatio="xMidYMid meet">',
+    f'<g font-family="Courier New, monospace" '
+    f'font-size="{FONT_SIZE}px" fill="{TEXT_COLOR}">',
 ]
 
-
-FINAL_WIDTH = max(
-    len(row)
-    for row in rows
-)
-
-FINAL_HEIGHT = len(rows)
-
-
-print(
-    f"Final ASCII: "
-    f"{FINAL_WIDTH} x {FINAL_HEIGHT}"
-)
-
-
-# ============================================================
-# SVG DIMENSIONS
-# ============================================================
-
-SVG_WIDTH = FINAL_WIDTH * CHAR_WIDTH
-SVG_HEIGHT = FINAL_HEIGHT * CHAR_HEIGHT
-
-
-# ============================================================
-# BUILD SVG
-# ============================================================
-
-svg = []
-
-svg.append(
-    f'<svg '
-    f'xmlns="http://www.w3.org/2000/svg" '
-    f'width="{SVG_WIDTH}" '
-    f'height="{SVG_HEIGHT}" '
-    f'viewBox="0 0 {SVG_WIDTH} {SVG_HEIGHT}" '
-    f'preserveAspectRatio="xMidYMid meet">'
-)
-
-
-# IMPORTANT:
-# No background rectangle.
-# The SVG is completely transparent.
-
-svg.append(
-    f'<g '
-    f'font-family="Courier New, monospace" '
-    f'font-size="11px" '
-    f'font-weight="400" '
-    f'fill="{TEXT_COLOR}">'
-)
-
-
-# ============================================================
-# DRAW ASCII ROWS
-# ============================================================
-
 for row_index, row in enumerate(rows):
+    stripped = row.strip(" ")
+    if not stripped:
+        continue
 
-    y = (
-        row_index + 1
-    ) * CHAR_HEIGHT
-
-    # Slight diagonal reveal animation
-    delay = row_index * 0.025
+    # Leading spaces are NOT trusted (SVG collapses them), so we
+    # position each row explicitly with an x offset instead.
+    lead = len(row) - len(row.lstrip(" "))
+    x = lead * CHAR_WIDTH
+    y = (row_index + 1) * CHAR_HEIGHT
+    text_len = len(stripped) * CHAR_WIDTH
 
     svg.append(
-        f'<text '
-        f'x="0" '
-        f'y="{y}" '
-        f'opacity="0">'
-        f'{html.escape(row)}'
-
-        f'<animate '
-        f'attributeName="opacity" '
-        f'from="0" '
-        f'to="1" '
-        f'dur="0.30s" '
-        f'begin="{delay:.3f}s" '
-        f'fill="freeze"/>'
-
-        f'</text>'
+        f'<text x="{x}" y="{y}" textLength="{text_len}" '
+        f'lengthAdjust="spacing" xml:space="preserve">'
+        f'{html.escape(stripped)}</text>'
     )
 
+svg.extend(["</g>", "</svg>"])
 
-svg.append("</g>")
-svg.append("</svg>")
+OUTPUT.write_text("\n".join(svg), encoding="utf-8")
 
-
-# ============================================================
-# SAVE
-# ============================================================
-
-OUTPUT.write_text(
-    "\n".join(svg),
-    encoding="utf-8"
-)
-
-
-# ============================================================
-# RESULT
-# ============================================================
-
-file_size = OUTPUT.stat().st_size
-
-print()
-print("================================")
-print("SUCCESS!")
-print("================================")
-print(
-    f"Created: {OUTPUT}"
-)
-print(
-    f"File size: {file_size:,} bytes"
-)
-print(
-    f"Final dimensions: "
-    f"{SVG_WIDTH} x {SVG_HEIGHT}"
-)
-print(
-    "Background: TRANSPARENT"
-)
-print(
-    "Subject: AUTO-CROPPED"
-)
-print(
-    "Alignment: CENTERED"
-)
-print(
-    "Animation: ENABLED"
-)
+print(f"Created: {OUTPUT}  ({svg_width} x {svg_height})")
