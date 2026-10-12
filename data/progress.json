@@ -1,0 +1,19 @@
+{
+  "projects": [
+    {"name": "Sales Performance Dashboard", "url": "https://github.com/sonusinhadata/sales-performance-dashboard",
+     "question": "Which regions, products and reps drive revenue?", "tools": ["Power BI", "DAX", "Excel"], "status": "progress"},
+    {"name": "Supply Chain Stock-out Analysis", "url": "https://github.com/sonusinhadata/supply-chain-stockout-analysis",
+     "question": "Where and why do stock-outs and delays occur?", "tools": ["SQL", "Python", "Pandas"], "status": "planned"},
+    {"name": "Operations OTIF Tracker", "url": "https://github.com/sonusinhadata/operations-otif-tracker",
+     "question": "How often are orders delivered on time and in full?", "tools": ["Power Query", "Power BI"], "status": "planned"}
+  ],
+  "skills": [
+    {"name": "Excel: pivots, XLOOKUP, dashboards", "done": true},
+    {"name": "SQL fundamentals: SELECT, JOIN, GROUP BY", "done": true},
+    {"name": "SQL advanced: CTEs, window functions", "done": false},
+    {"name": "Python: Pandas, NumPy, Matplotlib", "done": false},
+    {"name": "Power BI and DAX", "done": false},
+    {"name": "Statistics and A/B testing", "done": false},
+    {"name": "Capstone project", "done": false}
+  ]
+}
