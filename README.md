@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/sonusinha-dataanalyst"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:sonusinha.data@gmail.com"><img src="https://img.shields.io/badge/Email-334155?style=flat-square&logo=gmail&logoColor=white" /></a>
-  <a href="https://iam-sonusinha.github.io"><img src="https://img.shields.io/badge/Portfolio-0f766e?style=flat-square&logo=githubpages&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/sonusinha-dataanalyst"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:sonusinha.data@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://sonusinhadata.github.io/iam-sonusinha.github.io/"><img src="https://img.shields.io/badge/Portfolio-0f766e?style=for-the-badge&logo=githubpages&logoColor=white" /></a>
 </p>
 
 ## About
