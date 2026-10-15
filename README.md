@@ -37,18 +37,6 @@ Data Analyst focused on **sales, supply chain and operations analytics**. I work
 | [**Operations OTIF Tracker**](https://github.com/sonusinhadata/operations-otif-tracker) | How often are orders delivered on time and in full? | Power Query, Power BI | ![](https://img.shields.io/badge/Planned-64748b?style=flat-square) |
 <!--END_PROJECTS-->
 
-## Learning roadmap
-
-<!--START_ROADMAP-->
-- [x] Excel: pivots, XLOOKUP, dashboards
-- [x] SQL fundamentals: SELECT, JOIN, GROUP BY
-- [ ] SQL advanced: CTEs, window functions
-- [ ] Python: Pandas, NumPy, Matplotlib
-- [ ] Power BI and DAX
-- [ ] Statistics and A/B testing
-- [ ] Capstone project
-<!--END_ROADMAP-->
-
 ## GitHub activity
 
 <p align="center">
